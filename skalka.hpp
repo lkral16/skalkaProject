@@ -1,17 +1,18 @@
+// Get integer from user
 int brouckuInteger(const char *msg) {
     int value; 
     printf("%s\n",msg);
     scanf("%d",&value);
     return value;
 }
-
+// Get char from user
 char brouckuZnak(const char *msg) {
     char value;
     printf("%s\n");
     scanf("%c", value);
     return value;
 }
-
+// Get bool from user
 bool brouckuBool(const char *msg) {
     char value;
     do {
@@ -20,28 +21,28 @@ bool brouckuBool(const char *msg) {
     } while (value != 'A' && value != 'n');
     return value == 'A';
 }
-
+// Load array of ints from user
 void brouckuPoleIntegeru(const char *msg, int *nums, int length) {
     for (int i = 0; i < length; i++) {
         printf("%s\n", msg);
         scanf("%d", &nums[i]);
     }
 }
-
+// Print out array of ints
 void brouckuPisPoleIntegeru(int *nums, int length) {
     for (int i = 0; i < length; i++) {
         printf("%d\n", nums[i]);
     }
 }
-
+// Basicaly isEven
 bool brouckuSude(int num) {
     return num % 2;
 }
-
+// Gen random number
 int brouckuNahoda(int min, int max) {
     return rand() % max + min;
 }
-
+// Return lowest number
 int brouckuNejnizsi(int nums[]) {
     int low = nums[0];
     for (int i = 1; i < sizeof(nums) / sizeof(nums[0]); i++) {
@@ -49,7 +50,7 @@ int brouckuNejnizsi(int nums[]) {
     }
     return low;
 }
-
+// Return highest number
 int brouckuNejvyssi(int nums[]) {
     int high = nums[0];
     for (int i = 1; i < sizeof(nums) / sizeof(nums[0]); i++) {
@@ -57,7 +58,7 @@ int brouckuNejvyssi(int nums[]) {
     }
     return high;
 }
-
+// Get complex average dependant on weight of number
 float brouckuSlozityPrumer(int nums[], int weight[]) {
     int sum = 0, count = 0;
     for (int i = 0; i < sizeof(nums) / sizeof(nums[0]); i++) {
@@ -68,20 +69,20 @@ float brouckuSlozityPrumer(int nums[], int weight[]) {
     }
     return (float)sum / count;
 }
-
+// Get simple average
 float brouckuPrumer(int nums[]) {
     int sum = 0;
     short length = sizeof(nums) / sizeof(nums[0]);
     for (int i = 0; i < length; i++) sum += nums[i];
     return (float)sum / length;
 }
-
+// Get factorial
 int brouckuFaktorial(int num) {
     int fact = 1;
     for (int i = 1; i <= num; i++) fact *= i;
     return fact;
 }
-
+// Print number in hexadecimal format
 void brouckuSestnactkova(int dec) {
     int digitCount = 1, comparator = 16, hexDigit;
     while (comparator <= dec) { //get the numbers of digits
@@ -116,7 +117,7 @@ void brouckuSestnactkova(int dec) {
     }
     printf("\n");
 }
-
+// Print number in binary format
 void brouckuDvojkova(int dec) {
     int digitCount = 1, comparator = 2;
     while (comparator <= dec) {
@@ -135,7 +136,7 @@ void brouckuDvojkova(int dec) {
     printf("\n");
     
 }
-
+// Bubblesort array of ints to highest
 void brouckuPoNejvyssi(int *nums) {
     int buffer;
     int length = sizeof(nums) / sizeof(nums[0]);
@@ -149,7 +150,7 @@ void brouckuPoNejvyssi(int *nums) {
         }
     }
 }
-
+// Bubblesort array of ints to lowest
 void brouckuPoNejnizsi(int *nums) {
     int buffer;
     int length = sizeof(nums) / sizeof(nums[0]);
