@@ -29,6 +29,12 @@ void brouckuPoleIntegeru(const char *msg, int *nums, int length) {
     }
 }
 
+void brouckuPisPoleIntegeru(int *nums, int length) {
+    for (int i = 0; i < length; i++) {
+        printf("%d\n", nums[i]);
+    }
+}
+
 bool brouckuSude(int num) {
     if (num % 2 == 1) return false;
     else return true;
