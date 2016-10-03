@@ -62,7 +62,7 @@ int brouckuNejvyssi(int nums[]) {
 float brouckuSlozityPrumer(int nums[], int weight[]) {
     int sum = 0, count = 0;
     for (int i = 0; i < sizeof(nums) / sizeof(nums[0]); i++) {
-        for (int j = 0; j < weight[i]; j++) {
+        for (int j = 0; j < weight[i]; j++) { // Add a number more times in dependence on the weight
             sum += nums[i];
             count++;
         }
@@ -91,7 +91,7 @@ void brouckuSestnactkova(int dec) {
     }
     char digits[digitCount]; //create digits array
     
-    for (int i = 0; i < digitCount; i++) {
+    for (int i = 0; i < digitCount; i++) { // Fill digits[] with hexadec numbers
         hexDigit = dec % 16;
         (   hexDigit == 0 ? digits[i] = '0':
             hexDigit == 1 ? digits[i] = '1':
@@ -112,7 +112,7 @@ void brouckuSestnactkova(int dec) {
         dec /= 16;
     }
     
-    for (int i = digitCount - 1; i >= 0; i--) {
+    for (int i = digitCount - 1; i >= 0; i--) { // Print digits[] in reverse order
         printf("%c", digits[i]);
     }
     printf("\n");
@@ -120,17 +120,17 @@ void brouckuSestnactkova(int dec) {
 // Print number in binary format
 void brouckuDvojkova(int dec) {
     int digitCount = 1, comparator = 2;
-    while (comparator <= dec) {
+    while (comparator <= dec) { // Get number of digits
         digitCount++;
         comparator *= 2;
     }
     int digits[digitCount];
-    for (int i = 0; i < digitCount; i++) {
+    for (int i = 0; i < digitCount; i++) { // Fill digits[] with binary numbers
         digits[i] = dec % 2;
         dec /= 2;
     }
     
-    for (int i = digitCount - 1; i >= 0; i--) {
+    for (int i = digitCount - 1; i >= 0; i--) { // Print digits[] in reverse order
         printf("%d", digits[i]);
     }
     printf("\n");
