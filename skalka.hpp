@@ -18,8 +18,7 @@ bool brouckuBool(const char *msg) {
         printf("%s A/n\n", msg);
         scanf(" %c", &value);
     } while (value != 'A' && value != 'n');
-    if (value == 'A') return true;
-    else return false;
+    return value == 'A';
 }
 
 void brouckuPoleIntegeru(const char *msg, int *nums, int length) {
@@ -36,33 +35,32 @@ void brouckuPisPoleIntegeru(int *nums, int length) {
 }
 
 bool brouckuSude(int num) {
-    if (num % 2 == 1) return false;
-    else return true;
+    return num % 2;
 }
 
-int brouckuNahoda(int num) {
-    return rand() % num;
+int brouckuNahoda(int min, int max) {
+    return rand() % max + min;
 }
 
-int brouckuNejnizsi(int nums[], int length) {
+int brouckuNejnizsi(int nums[]) {
     int low = nums[0];
-    for (int i = 1; i < length; i++) {
+    for (int i = 1; i < sizeof(nums) / sizeof(nums[0]); i++) {
         if (nums[i] < low) low = nums[i];
     }
     return low;
 }
 
-int brouckuNejvyssi(int nums[], int length) {
+int brouckuNejvyssi(int nums[]) {
     int high = nums[0];
-    for (int i = 1; i < length; i++) {
+    for (int i = 1; i < sizeof(nums) / sizeof(nums[0]); i++) {
         if (nums[i] > high) high = nums[i];
     }
     return high;
 }
 
-float brouckuSlozityPrumer(int nums[], int weight[], int length) {
+float brouckuSlozityPrumer(int nums[], int weight[]) {
     int sum = 0, count = 0;
-    for (int i = 0; i < length; i++) {
+    for (int i = 0; i < sizeof(nums) / sizeof(nums[0]); i++) {
         for (int j = 0; j < weight[i]; j++) {
             sum += nums[i];
             count++;
@@ -71,8 +69,9 @@ float brouckuSlozityPrumer(int nums[], int weight[], int length) {
     return (float)sum / count;
 }
 
-float brouckuPrumer(int nums[], int length) {
+float brouckuPrumer(int nums[]) {
     int sum = 0;
+    short length = sizeof(nums) / sizeof(nums[0]);
     for (int i = 0; i < length; i++) sum += nums[i];
     return (float)sum / length;
 }
@@ -84,6 +83,7 @@ int brouckuFaktorial(int num) {
 }
 
 void brouckuSestnactkova(int dec) {
+<<<<<<< HEAD
     int digitCount = 1, comparator = 16, hexDigit;
     while (comparator <= dec) { //get the numbers of digits
         digitCount++;
@@ -116,6 +116,9 @@ void brouckuSestnactkova(int dec) {
         printf("%c", digits[i]);
     }
     printf("\n");
+=======
+     std::cout << std::hex << dec;
+>>>>>>> aaafa9c9e8196a8de6f94a2897c5c35d2365315d
 }
 
 void brouckuDvojkova(int dec) {
@@ -137,8 +140,9 @@ void brouckuDvojkova(int dec) {
     
 }
 
-void brouckuPoNejvyssi(int *nums, int length) {
+void brouckuPoNejvyssi(int *nums) {
     int buffer;
+    int length = sizeof(nums) / sizeof(nums[0]);
     for (int i = 0; i < length; i++) {
         for (int k = i + 1; k < length; k++) {
             if (nums[i] > nums[k]) {
@@ -150,8 +154,9 @@ void brouckuPoNejvyssi(int *nums, int length) {
     }
 }
 
-void brouckuPoNejnizsi(int *nums, int length) {
+void brouckuPoNejnizsi(int *nums) {
     int buffer;
+    int length = sizeof(nums) / sizeof(nums[0]);
     for (int i = 0; i < length; i++) {
         for (int k = i + 1; k < length; k++) {
             if (nums[i] < nums[k]) {
