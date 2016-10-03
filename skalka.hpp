@@ -83,7 +83,6 @@ int brouckuFaktorial(int num) {
 }
 
 void brouckuSestnactkova(int dec) {
-<<<<<<< HEAD
     int digitCount = 1, comparator = 16, hexDigit;
     while (comparator <= dec) { //get the numbers of digits
         digitCount++;
@@ -116,9 +115,6 @@ void brouckuSestnactkova(int dec) {
         printf("%c", digits[i]);
     }
     printf("\n");
-=======
-     std::cout << std::hex << dec;
->>>>>>> aaafa9c9e8196a8de6f94a2897c5c35d2365315d
 }
 
 void brouckuDvojkova(int dec) {
