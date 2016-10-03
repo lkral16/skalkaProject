@@ -84,20 +84,36 @@ int brouckuFaktorial(int num) {
 }
 
 void brouckuSestnactkova(int dec) {
-    int digitCount = 1, comparator = 16;
+    int digitCount = 1, comparator = 16, hexDigit;
     while (comparator <= dec) { //get the numbers of digits
         digitCount++;
         comparator *= 16;
     }
-    int digits[digitCount]; //create digits array
+    char digits[digitCount]; //create digits array
     
     for (int i = 0; i < digitCount; i++) {
-        digits[i] = dec % 16;
+        hexDigit = dec % 16;
+        (   hexDigit == 0 ? digits[i] = '0':
+            hexDigit == 1 ? digits[i] = '1':
+            hexDigit == 2 ? digits[i] = '2':
+            hexDigit == 3 ? digits[i] = '3':
+            hexDigit == 4 ? digits[i] = '4':
+            hexDigit == 5 ? digits[i] = '5':
+            hexDigit == 6 ? digits[i] = '6':
+            hexDigit == 7 ? digits[i] = '7':
+            hexDigit == 8 ? digits[i] = '8':
+            hexDigit == 9 ? digits[i] = '9':
+            hexDigit == 10 ? digits[i] = 'A':
+            hexDigit == 11 ? digits[i] = 'B':
+            hexDigit == 12 ? digits[i] = 'C':
+            hexDigit == 13 ? digits[i] = 'D':
+            hexDigit == 14 ? digits[i] = 'E':
+            digits[i] = 'F');
         dec /= 16;
     }
     
     for (int i = digitCount - 1; i >= 0; i--) {
-        printf("%d", digits[i]);
+        printf("%c", digits[i]);
     }
     printf("\n");
 }
