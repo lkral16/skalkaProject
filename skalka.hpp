@@ -93,22 +93,24 @@ void brouckuSestnactkova(int dec) {
     
     for (int i = 0; i < digitCount; i++) { // Fill digits[] with hexadec numbers
         hexDigit = dec % 16;
-        (   hexDigit == 0 ? digits[i] = '0':
-            hexDigit == 1 ? digits[i] = '1':
-            hexDigit == 2 ? digits[i] = '2':
-            hexDigit == 3 ? digits[i] = '3':
-            hexDigit == 4 ? digits[i] = '4':
-            hexDigit == 5 ? digits[i] = '5':
-            hexDigit == 6 ? digits[i] = '6':
-            hexDigit == 7 ? digits[i] = '7':
-            hexDigit == 8 ? digits[i] = '8':
-            hexDigit == 9 ? digits[i] = '9':
-            hexDigit == 10 ? digits[i] = 'A':
-            hexDigit == 11 ? digits[i] = 'B':
-            hexDigit == 12 ? digits[i] = 'C':
-            hexDigit == 13 ? digits[i] = 'D':
-            hexDigit == 14 ? digits[i] = 'E':
-            digits[i] = 'F');
+        switch(dec % 16) {
+            case 0 : digits[i] = '0'; break;
+            case 1 : digits[i] = '1'; break;
+            case 2 : digits[i] = '2'; break;
+            case 3 : digits[i] = '3'; break;
+            case 4 : digits[i] = '4'; break;
+            case 5 : digits[i] = '5'; break;
+            case 6 : digits[i] = '6'; break;
+            case 7 : digits[i] = '7'; break;
+            case 8 : digits[i] = '8'; break;
+            case 9 : digits[i] = '9'; break;
+            case 10 : digits[i] = 'A'; break;
+            case 11 : digits[i] = 'B'; break;
+            case 12 : digits[i] = 'C'; break;
+            case 13 : digits[i] = 'D'; break;
+            case 14 : digits[i] = 'E'; break;
+            case 15 : digits[i] = 'F'; break;
+        }
         dec /= 16;
     }
     
