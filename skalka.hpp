@@ -43,7 +43,7 @@ int brouckuNahoda(int min, int max) {
     return rand() % max + min;
 }
 // Return lowest number
-int brouckuNejnizsi(int nums[]) {
+int brouckuNejnizsi(int *nums) {
     int low = nums[0];
     for (int i = 1; i < sizeof(nums) / sizeof(nums[0]); i++) {
         if (nums[i] < low) low = nums[i];
@@ -51,7 +51,7 @@ int brouckuNejnizsi(int nums[]) {
     return low;
 }
 // Return highest number
-int brouckuNejvyssi(int nums[]) {
+int brouckuNejvyssi(int *nums) {
     int high = nums[0];
     for (int i = 1; i < sizeof(nums) / sizeof(nums[0]); i++) {
         if (nums[i] > high) high = nums[i];
@@ -59,7 +59,7 @@ int brouckuNejvyssi(int nums[]) {
     return high;
 }
 // Get complex average dependant on weight of number
-float brouckuSlozityPrumer(int nums[], int weight[]) {
+float brouckuSlozityPrumer(int *nums, int *weight) {
     int sum = 0, count = 0;
     for (int i = 0; i < sizeof(nums) / sizeof(nums[0]); i++) {
         for (int j = 0; j < weight[i]; j++) { // Add a number more times in dependence on the weight
@@ -70,7 +70,7 @@ float brouckuSlozityPrumer(int nums[], int weight[]) {
     return (float)sum / count;
 }
 // Get simple average
-float brouckuPrumer(int nums[]) {
+float brouckuPrumer(int *nums) {
     int sum = 0;
     short length = sizeof(nums) / sizeof(nums[0]);
     for (int i = 0; i < length; i++) sum += nums[i];
@@ -85,11 +85,11 @@ int brouckuFaktorial(int num) {
 // Print number in hexadecimal format
 void brouckuSestnactkova(int dec) {
     int digitCount = 1, comparator = 16, hexDigit;
-    while (comparator <= dec) { //get the numbers of digits
+    while (comparator <= dec) { // Get the numbers of digits
         digitCount++;
         comparator *= 16;
     }
-    char digits[digitCount]; //create digits array
+    char digits[digitCount]; // Create digits array
     
     for (int i = 0; i < digitCount; i++) { // Fill digits[] with hexadec numbers
         hexDigit = dec % 16;
