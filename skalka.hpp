@@ -43,25 +43,25 @@ int brouckuNahoda(int min, int max) {
     return rand() % max + min;
 }
 // Return lowest number
-int brouckuNejnizsi(int *nums) {
+int brouckuNejnizsi(int *nums, int length) {
     int low = nums[0];
-    for (int i = 1; i < sizeof(nums) / sizeof(nums[0]); i++) {
+    for (int i = 1; i < length; i++) {
         if (nums[i] < low) low = nums[i];
     }
     return low;
 }
 // Return highest number
-int brouckuNejvyssi(int *nums) {
+int brouckuNejvyssi(int *nums, int length) {
     int high = nums[0];
-    for (int i = 1; i < sizeof(nums) / sizeof(nums[0]); i++) {
+    for (int i = 1; i < length; i++) {
         if (nums[i] > high) high = nums[i];
     }
     return high;
 }
 // Get complex average dependant on weight of number
-float brouckuSlozityPrumer(int *nums, int *weight) {
+float brouckuSlozityPrumer(int *nums, int *weight, int length) {
     int sum = 0, count = 0;
-    for (int i = 0; i < sizeof(nums) / sizeof(nums[0]); i++) {
+    for (int i = 0; i < length; i++) {
         for (int j = 0; j < weight[i]; j++) { // Add a number more times in dependence on the weight
             sum += nums[i];
             count++;
@@ -70,9 +70,8 @@ float brouckuSlozityPrumer(int *nums, int *weight) {
     return (float)sum / count;
 }
 // Get simple average
-float brouckuPrumer(int *nums) {
+float brouckuPrumer(int *nums, int length) {
     int sum = 0;
-    short length = sizeof(nums) / sizeof(nums[0]);
     for (int i = 0; i < length; i++) sum += nums[i];
     return (float)sum / length;
 }
@@ -139,9 +138,8 @@ void brouckuDvojkova(int dec) {
     
 }
 // Bubblesort array of ints to highest
-void brouckuPoNejvyssi(int *nums) {
+void brouckuPoNejvyssi(int *nums, int length) {
     int buffer;
-    int length = sizeof(nums) / sizeof(nums[0]);
     for (int i = 0; i < length; i++) {
         for (int k = i + 1; k < length; k++) {
             if (nums[i] > nums[k]) {
@@ -153,9 +151,8 @@ void brouckuPoNejvyssi(int *nums) {
     }
 }
 // Bubblesort array of ints to lowest
-void brouckuPoNejnizsi(int *nums) {
+void brouckuPoNejnizsi(int *nums, int length) {
     int buffer;
-    int length = sizeof(nums) / sizeof(nums[0]);
     for (int i = 0; i < length; i++) {
         for (int k = i + 1; k < length; k++) {
             if (nums[i] < nums[k]) {
