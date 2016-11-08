@@ -31,11 +31,9 @@ int main() {
     int nums[arrLength]; //vytvoreni pole s hodnotami
     bool isFlipped[arrLength]; //vytvoreni pole, ktere nese informaci o tom, zda je karta na danem indexu otocena
     for (int i = 0; i < arrLength; i++) { //naplneni poli
-        if (i < arrLength / 2) nums[i] = rand() % 50 + 1;
-        else nums[i] = nums[i-arrLength/2];
+        nums[i] = rand() % 9 + 1;
         isFlipped[i] = false; 
     }
-    printf("\n\n");
     
     for (int i = 0; i < arrLength - 1; i++) //nahodne zprehazeni hodnot pres upraveny sort (podminka k prehozeni hodnot nezavisi na jejich velikosti, ale na nahodne generovanem cisle)
             for (int k = i + 1; k < arrLength; k++)
@@ -58,26 +56,24 @@ int main() {
     tries++;
         do { //vyzve uzivatele k zadani prvniho indexu, karta s danym indexem nesmi uz byt otocena, stejna jako druha karta a musi byt v danem rozmezi
             system("clear");
-            printf("Enter index of first card (0-%d):\n>> ", arrLength-1);
+            printf("Enter index of a card (0-%d):\n>> ", arrLength-1);
             scanf("%d", &input1);
         } while((input1 < 0 || input1 > arrLength - 1) || isFlipped[input1]);
-        do { //vyzve uzivatele k zadani druheho indexu
+        do { //vyzve uzivatele k zadani hodnoty
             system("clear");
-            printf("Enter index of second card: (0-%d):\n>> ", arrLength-1);
+            printf("Enter value of the card:\n>> ");
             scanf("%d", &input2);
-        } while((input2 < 0 || input2 > arrLength - 1) || isFlipped[input2] || (input1 == input2));
+        } while((input2 < 0 || input2 > 9));
         system("clear");
-        isFlipped[input1] = true; //otoceni karet
-        isFlipped[input2] = true;
+        isFlipped[input1] = true; //otoceni karty
         for (int i = 0; i < arrLength; i++) //vypsani indexu
             printf("%5d", i);
         printf("\n\n");
         for (int i = 0; i < arrLength; i++) //vypsani hodnot karet v zavislosti na jejich stavu (otocena/neotocena)
             if (isFlipped[i]) printf("%5d", nums[i]);
             else printf("%5c", 'X');
-        if (nums[input1] != nums[input2]) { //otoci karty do puvodniho stavu, pokud uzivatel netrefil spravne
+        if (nums[input1] != input2) { //otoci karty do puvodniho stavu, pokud uzivatel netrefil spravne
             isFlipped[input1] = false;
-            isFlipped[input2] = false;
             printf("\nYou missed!");
         }
         else printf("\nGotcha!");
