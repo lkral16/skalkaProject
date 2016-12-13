@@ -35,14 +35,6 @@ int main() {
         isFlipped[i] = false; 
     }
     
-    for (int i = 0; i < arrLength - 1; i++) //nahodne zprehazeni hodnot pres upraveny sort (podminka k prehozeni hodnot nezavisi na jejich velikosti, ale na nahodne generovanem cisle)
-            for (int k = i + 1; k < arrLength; k++)
-                if (rand() % 2) {
-                    int buffer = nums[i];
-                    nums[i] = nums[k];
-                    nums[k] = buffer;
-                }
-    
     for (int i = 0; i < arrLength; i++) //vypsani indexu
         printf("%5d", i);
     printf("\n\n");
@@ -53,7 +45,7 @@ int main() {
     usleep(5000000); //cekani na uzivatele
     
     do { //hlavni cyklus hry
-    tries++;
+        tries++;
         do { //vyzve uzivatele k zadani prvniho indexu, karta s danym indexem nesmi uz byt otocena, stejna jako druha karta a musi byt v danem rozmezi
             system("clear");
             printf("Enter index of a card (0-%d):\n>> ", arrLength-1);
@@ -70,7 +62,8 @@ int main() {
             printf("%5d", i);
         printf("\n\n");
         for (int i = 0; i < arrLength; i++) //vypsani hodnot karet v zavislosti na jejich stavu (otocena/neotocena)
-            if (isFlipped[i]) printf("%5d", nums[i]);
+            if (isFlipped[i] && input1 == i) printf("%5d", input2);
+            else if (isFlipped[i]) printf("%5d", nums[i]);
             else printf("%5c", 'X');
         if (nums[input1] != input2) { //otoci karty do puvodniho stavu, pokud uzivatel netrefil spravne
             isFlipped[input1] = false;
@@ -78,7 +71,7 @@ int main() {
         }
         else printf("\nGotcha!");
         printf("\n\n");
-        usleep(5000000);
+        usleep(2000000);
     } while(checkForUnflippedCard(isFlipped, arrLength)); //nezbyva-li dalsi karta k otoceni, vzskakuje se z czklu a program oznamuje uzivateli vyhru
     printf("Congratz, you needed %d tries to acomplish this task!\n", tries);
     
