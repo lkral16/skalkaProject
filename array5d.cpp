@@ -46,7 +46,7 @@ int main() {
                                             reps++;
                                             /*printf("[%d] [%d] [%d] [%d] [%d]\n",x1,y1,z1, a1, b1);
                                             printf("[%d] [%d] [%d] [%d] [%d]\n",x2,y2,z2, a2, b2);
-                                            usleep(125000);
+                                            usleep(1);
                                             system("clear");*/
                                         }
                                     }
@@ -77,6 +77,5 @@ int main() {
     }
     
     
-    printf("Zkontrolovani pole: %d\n\
-            skutecnych prohozeni: %d", reps, shuffles);
+    printf("Zkontrolovani pole: %d\nskutecnych prohozeni: %d\n", reps, shuffles);
 }
